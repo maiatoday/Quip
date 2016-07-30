@@ -27,11 +27,37 @@ public class Quip {
 
     String[] quips;
 
+    boolean random = true;
+    int i = 0;
+
     public Quip(String[] quips) {
-       this.quips = quips;
+        this.quips = quips;
+    }
+
+    public Quip(String[] quips, boolean random) {
+        this.quips = quips;
+        this.random = random;
     }
 
     public String blurt() {
-        return quips[dice.nextInt(quips.length)];
+        if (random) {
+            return quips[dice.nextInt(quips.length)];
+        } else {
+            int next = i;
+            if (i == quips.length - 1) {
+                i = 0;
+            } else {
+                i++;
+            }
+            return quips[next];
+        }
+    }
+
+    public void setRandom(boolean random) {
+        this.random = random;
+    }
+
+    public boolean isRandom() {
+        return random;
     }
 }
