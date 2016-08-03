@@ -60,4 +60,8 @@ public class Quip {
     public boolean isRandom() {
         return random;
     }
+
+    public void setQuips(String[] quips) {
+        this.quips = quips;
+    }
 }
